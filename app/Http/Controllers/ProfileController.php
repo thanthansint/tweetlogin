@@ -57,4 +57,9 @@ class ProfileController extends Controller
         return view('profile',['tweets'=>$result]);
         //return view('editTweet',["id"=> $request->edit] );
     }
+    function deleteTweet(Request $request){
+           \App\Tweet::destroy($request->id);
+           $result = \App\Tweet::all();
+            return view('profile', ['tweets'=>$result] );
+    }
 }
