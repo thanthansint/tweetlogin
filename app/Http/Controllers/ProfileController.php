@@ -53,7 +53,8 @@ class ProfileController extends Controller
         $tweet->author = $request->author;
         $tweet->content = $request->content;
         $tweet->save();
-        return view('profile');
+        $result = \App\Tweet::all();
+        return view('profile',['tweets'=>$result]);
         //return view('editTweet',["id"=> $request->edit] );
     }
 }
